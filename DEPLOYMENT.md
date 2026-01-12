@@ -1,5 +1,4 @@
 # Portfolio Deployment Guide
-
 This guide will help you deploy your Astro portfolio to GitHub Pages at `https://shptk.github.io/`.
 
 ## Prerequisites
