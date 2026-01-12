@@ -1,0 +1,125 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "Open-source projects and personal experiments in DevOps, Kubernetes, and Infrastructure automation",
+	title: "Projects",
+};
+---
+
+<PageLayout meta={meta}>
+	<h1 class="title mb-12">Projects</h1>
+	<div class="prose prose-sm prose-cactus max-w-none">
+		<p class="text-lg mb-8">
+			Here are some of the projects I've built to learn, experiment, and solve real-world infrastructure problems. All code is open-source on my GitHub!
+		</p>
+
+		<!-- Featured Projects -->
+		<div class="space-y-10">
+			<!-- Canary Deployment Strategy -->
+			<div class="border border-accent-2 rounded-lg p-6 hover:shadow-lg transition-shadow">
+				<div class="flex items-start justify-between mb-4">
+					<h2 class="!mt-0 !mb-2">Canary Deployment on Kubernetes</h2>
+					<a
+						class="cactus-link text-sm"
+						href="https://github.com/shptk/CanaryDeployK8S"
+						rel="noreferrer"
+						target="_blank"
+					>
+						View on GitHub →
+					</a>
+				</div>
+
+				<p class="mb-4">
+					A complete implementation of canary deployment strategy using Terraform and Kubernetes manifests. Because rolling out changes without proper testing is... brave? Reckless? You decide.
+				</p>
+
+				<h3 class="text-base !mb-2">What's Inside:</h3>
+				<ul class="list-disc list-inside space-y-1 mb-4">
+					<li>Infrastructure as Code using Terraform for K8s cluster setup</li>
+					<li>Canary deployment manifests with traffic splitting</li>
+					<li>Automated rollback mechanisms</li>
+					<li>Monitoring integration to track canary health</li>
+				</ul>
+
+				<div class="flex flex-wrap gap-2">
+					<span class="inline-block bg-accent-2/10 text-accent-2 px-3 py-1 rounded-full text-xs font-semibold">Kubernetes</span>
+					<span class="inline-block bg-accent-2/10 text-accent-2 px-3 py-1 rounded-full text-xs font-semibold">Terraform</span>
+					<span class="inline-block bg-accent-2/10 text-accent-2 px-3 py-1 rounded-full text-xs font-semibold">DevOps</span>
+				</div>
+			</div>
+
+			<!-- Ansible Jenkins Integration -->
+			<div class="border border-accent-2 rounded-lg p-6 hover:shadow-lg transition-shadow">
+				<div class="flex items-start justify-between mb-4">
+					<h2 class="!mt-0 !mb-2">Ansible Jenkins CI/CD Pipeline</h2>
+					<a
+						class="cactus-link text-sm"
+						href="https://github.com/shptk/Ansible-Jenkins-Integration"
+						rel="noreferrer"
+						target="_blank"
+					>
+						View on GitHub →
+					</a>
+				</div>
+
+				<p class="mb-4">
+					End-to-end Infrastructure as Code and CI/CD setup for a Flask application. This project automates the entire journey from infrastructure provisioning to application deployment.
+				</p>
+
+				<h3 class="text-base !mb-2">Features:</h3>
+				<ul class="list-disc list-inside space-y-1 mb-4">
+					<li>Automated Jenkins server configuration using Ansible</li>
+					<li>Kubernetes cluster setup and configuration</li>
+					<li>Complete CI/CD pipeline for Flask application</li>
+					<li>Configuration management and deployment automation</li>
+					<li>Integration testing and deployment verification</li>
+				</ul>
+
+				<div class="flex flex-wrap gap-2">
+					<span class="inline-block bg-accent-2/10 text-accent-2 px-3 py-1 rounded-full text-xs font-semibold">Ansible</span>
+					<span class="inline-block bg-accent-2/10 text-accent-2 px-3 py-1 rounded-full text-xs font-semibold">Jenkins</span>
+					<span class="inline-block bg-accent-2/10 text-accent-2 px-3 py-1 rounded-full text-xs font-semibold">Kubernetes</span>
+					<span class="inline-block bg-accent-2/10 text-accent-2 px-3 py-1 rounded-full text-xs font-semibold">Flask</span>
+				</div>
+			</div>
+
+			<!-- More Projects Coming Soon -->
+			<div class="border border-dashed border-accent-2 rounded-lg p-6 opacity-60">
+				<h2 class="!mt-0 !mb-2">More Projects Coming Soon</h2>
+				<p class="mb-0">
+					I'm constantly tinkering with new ideas and technologies. Check back soon for more projects, or better yet, follow me on <a
+						class="cactus-link inline-block"
+						href="https://github.com/shptk"
+						rel="noreferrer"
+						target="_blank">GitHub</a
+					> to see what I'm working on!
+				</p>
+			</div>
+		</div>
+
+		<!-- Call to Action -->
+		<div class="mt-12 pt-8 border-t-2 border-accent-2">
+			<h2>Interested in Collaborating?</h2>
+			<p>
+				I'm always open to collaborating on interesting DevOps and infrastructure projects. If you have an idea or want to contribute to any of my existing projects, feel free to reach out or open an issue on GitHub!
+			</p>
+			<div class="flex gap-4 mt-4">
+				<a
+					class="cactus-link inline-block"
+					href="https://github.com/shptk"
+					rel="noreferrer"
+					target="_blank"
+				>
+					GitHub Profile →
+				</a>
+				<a
+					class="cactus-link inline-block"
+					href="mailto:shashwatpathak100@gmail.com"
+				>
+					Email Me →
+				</a>
+			</div>
+		</div>
+	</div>
+</PageLayout>

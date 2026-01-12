@@ -2,35 +2,66 @@
 import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-	description: "I'm a starter theme for Astro.build",
+	description: "Platform Engineer based in Bangalore, India. Building cloud-native infrastructure and automating everything in sight.",
 	title: "About",
 };
 ---
 
 <PageLayout meta={meta}>
-	<h1 class="title mb-12">About</h1>
+	<h1 class="title mb-12">About Me</h1>
 	<div class="prose prose-sm prose-cactus max-w-none">
 		<p>
-			Hi, I’m a starter Astro. I’m particularly great for getting you started with your own blogging
-			website.
+			Hey there! I'm Shashwat, a Platform Engineer based in Bangalore, India. I spend my days (and sometimes nights) building and scaling cloud infrastructure across AWS, GCP, and Azure.
 		</p>
-		<p>Here are my some of my awesome built in features:</p>
-		<ul class="list-inside list-disc" role="list">
-			<li>I'm ultra fast as I'm a static site</li>
-			<li>I'm fully responsive</li>
-			<li>I come with a light and dark mode</li>
-			<li>I'm easy to customise and add additional content</li>
-			<li>I have Tailwind CSS styling</li>
-			<li>Shiki code syntax highlighting</li>
-			<li>Satori for auto generating OG images for blog posts</li>
-		</ul>
 		<p>
-			Clone or fork my <a
+			My journey started back in 2022 when I landed my first internship at <a
 				class="cactus-link inline-block"
-				href="https://github.com/chrismwilliams/astro-cactus"
+				href="https://opslyft.com"
 				rel="noreferrer"
-				target="_blank">repo</a
-			> if you like me!
+				target="_blank">Opslyft</a
+			>. Since then, I've been fortunate to work with <a
+				class="cactus-link inline-block"
+				href="https://facets.cloud"
+				rel="noreferrer"
+				target="_blank">Facets.cloud</a
+			>, where I've worn multiple hats - from DevOps intern to Platform Engineer and Forward Deployed Engineer.
 		</p>
+
+		<h2>What I Do</h2>
+		<p>
+			I'm all about making infrastructure smarter and more efficient. Whether it's crafting Terraform modules, optimizing Kubernetes clusters, or setting up observability stacks with Prometheus and Grafana, I love solving complex infrastructure puzzles.
+		</p>
+		<p>
+			Recently, I've been exploring how AI can augment DevOps workflows - I even built an MCP server and Claude.ai skill to automate infrastructure cost optimization. Pretty cool stuff!
+		</p>
+
+		<h2>When I'm Not Coding</h2>
+		<p>
+			You'll probably find me tinkering with new cloud technologies, experimenting with automation tools, or contributing to open-source projects. I'm also a big fan of learning through certifications - I've got a few RedHat certs and recently earned my Google Cloud Professional Architect certification.
+		</p>
+		<p>
+			I believe in learning by doing and sharing what I've learned along the way. That's why I maintain this blog - to document my journey, share interesting problems I've solved, and hopefully help someone else avoid the same pitfalls I've encountered.
+		</p>
+
+		<h2>Get in Touch</h2>
+		<p>
+			Want to chat about Kubernetes, cloud architecture, or the latest DevOps trends? Feel free to reach out:
+		</p>
+		<ul class="list-inside list-disc" role="list">
+			<li>Email: <a class="cactus-link inline-block" href="mailto:shashwatpathak100@gmail.com">shashwatpathak100@gmail.com</a></li>
+			<li>GitHub: <a class="cactus-link inline-block" href="https://github.com/shptk" rel="noreferrer" target="_blank">@shptk</a></li>
+			<li>LinkedIn: <a class="cactus-link inline-block" href="https://www.linkedin.com/in/shptk/" rel="noreferrer" target="_blank">in/shptk</a></li>
+			<li>Location: Bangalore, India 🇮🇳</li>
+		</ul>
+
+		<div class="mt-8 not-prose">
+			<a
+				href="/Shashwat-Pathak-Resume.pdf"
+				class="inline-block px-6 py-3 bg-accent-2 text-bgColor rounded-lg font-semibold hover:opacity-90 transition-opacity"
+				download
+			>
+				📄 Download My Resume
+			</a>
+		</div>
 	</div>
 </PageLayout>

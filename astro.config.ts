@@ -22,6 +22,9 @@ import { expressiveCodeOptions, siteConfig } from "./src/site.config";
 // https://astro.build/config
 export default defineConfig({
 	site: siteConfig.url,
+	// For GitHub Pages username.github.io, no base is needed
+	// If deploying to a repo like shptk.github.io/repo-name, set base: '/repo-name/'
+	base: '/',
 	image: {
 		domains: ["webmention.io"],
 	},

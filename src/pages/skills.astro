@@ -1,0 +1,154 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "Technical skills and expertise in Cloud, DevOps, Kubernetes, and Infrastructure automation",
+	title: "Skills",
+};
+
+const skillCategories = [
+	{
+		title: "Programming & Scripting",
+		icon: "💻",
+		skills: [
+			{ name: "Python", level: "Advanced" },
+			{ name: "Bash", level: "Advanced" },
+			{ name: "Go", level: "Basic" },
+		],
+	},
+	{
+		title: "Infrastructure as Code",
+		icon: "🏗️",
+		skills: [
+			{ name: "Terraform", level: "Expert" },
+			{ name: "Ansible", level: "Advanced" },
+			{ name: "Helm", level: "Advanced" },
+		],
+	},
+	{
+		title: "Cloud Platforms",
+		icon: "☁️",
+		skills: [
+			{ name: "AWS", level: "Advanced" },
+			{ name: "Google Cloud Platform", level: "Advanced" },
+			{ name: "Azure", level: "Advanced" },
+		],
+	},
+	{
+		title: "Container Orchestration",
+		icon: "🐳",
+		skills: [
+			{ name: "Kubernetes", level: "Expert" },
+			{ name: "Docker", level: "Advanced" },
+			{ name: "EKS / AKS / GKE", level: "Advanced" },
+		],
+	},
+	{
+		title: "CI/CD & Automation",
+		icon: "🔄",
+		skills: [
+			{ name: "GitHub Actions", level: "Advanced" },
+			{ name: "Jenkins", level: "Intermediate" },
+			{ name: "GitLab CI", level: "Intermediate" },
+		],
+	},
+	{
+		title: "Observability & Monitoring",
+		icon: "📊",
+		skills: [
+			{ name: "Prometheus", level: "Advanced" },
+			{ name: "Grafana", level: "Advanced" },
+			{ name: "Loki", level: "Advanced" },
+			{ name: "Telegraf", level: "Intermediate" },
+		],
+	},
+	{
+		title: "Databases",
+		icon: "🗄️",
+		skills: [
+			{ name: "MongoDB", level: "Intermediate" },
+			{ name: "Redis", level: "Intermediate" },
+			{ name: "MySQL / PostgreSQL", level: "Intermediate" },
+		],
+	},
+	{
+		title: "Core Concepts",
+		icon: "🧠",
+		skills: [
+			{ name: "System Design", level: "Advanced" },
+			{ name: "Cloud Networking", level: "Advanced" },
+			{ name: "Security & Compliance", level: "Intermediate" },
+		],
+	},
+];
+---
+
+<PageLayout meta={meta}>
+	<h1 class="title mb-12">Skills & Expertise</h1>
+	<div class="prose prose-sm prose-cactus max-w-none">
+		<p class="text-lg mb-8">
+			My toolkit for building and scaling cloud-native infrastructure. From writing Terraform modules to debugging production Kubernetes clusters at 3 AM (yes, it happens).
+		</p>
+
+		<!-- Skills Grid -->
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose mb-12">
+			{skillCategories.map((category) => (
+				<div class="border border-accent-2 rounded-lg p-6 hover:shadow-lg transition-shadow">
+					<div class="flex items-center gap-3 mb-4">
+						<span class="text-3xl">{category.icon}</span>
+						<h2 class="text-xl font-bold !mt-0">{category.title}</h2>
+					</div>
+					<div class="space-y-3">
+						{category.skills.map((skill) => (
+							<div>
+								<div class="flex justify-between items-center mb-1">
+									<span class="font-medium">{skill.name}</span>
+									<span class="text-xs text-accent-2 font-semibold">{skill.level}</span>
+								</div>
+								<div class="w-full bg-accent-2/20 rounded-full h-2">
+									<div
+										class="bg-accent-2 h-2 rounded-full transition-all"
+										style={`width: ${skill.level === "Expert" ? "95%" : skill.level === "Advanced" ? "80%" : skill.level === "Intermediate" ? "60%" : "40%"}`}
+									></div>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			))}
+		</div>
+
+		<!-- What I'm Learning -->
+		<div class="mt-12 pt-8 border-t-2 border-accent-2">
+			<h2>Currently Exploring 🚀</h2>
+			<p>
+				The tech landscape never stops evolving, and neither do I! Here's what I'm currently diving into:
+			</p>
+			<ul class="list-disc list-inside space-y-2">
+				<li>
+					<strong>AI/ML Ops:</strong> Exploring how to apply DevOps principles to machine learning workflows and model deployment
+				</li>
+				<li>
+					<strong>Platform Engineering:</strong> Building internal developer platforms and self-service infrastructure
+				</li>
+				<li>
+					<strong>Service Mesh:</strong> Getting hands-on with Istio and Linkerd for advanced traffic management
+				</li>
+				<li>
+					<strong>FinOps:</strong> Deep diving into cloud cost optimization strategies and FinOps best practices
+				</li>
+			</ul>
+		</div>
+
+		<!-- Approach -->
+		<div class="mt-12 pt-8 border-t-2 border-accent-2">
+			<h2>My Approach</h2>
+			<p>
+				I believe in <strong>infrastructure as code</strong>, <strong>automation first</strong>, and <strong>pragmatic solutions</strong> over perfect architectures. Every tool has its place, and the best technology is the one that solves your specific problem.
+			</p>
+			<p>
+				Whether it's choosing between EKS, AKS, or GKE, or deciding if you even need Kubernetes in the first place, I focus on what works for your use case, not what's trending on tech Twitter.
+			</p>
+		</div>
+	</div>
+</PageLayout>

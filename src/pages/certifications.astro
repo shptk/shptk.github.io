@@ -1,0 +1,129 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "Professional certifications in Cloud Architecture, Linux Administration, and Container Orchestration",
+	title: "Certifications",
+};
+
+const certifications = [
+	{
+		title: "Google Certified Professional Cloud Architect",
+		issuer: "Google Cloud",
+		date: "December 2025",
+		credlyUrl: "https://www.credly.com/badges/feeccd04-0321-4da9-8a5b-9f5c8f2052c4/public_url",
+		icon: "☁️",
+		description: "Demonstrates proficiency in designing, developing, and managing robust, secure, scalable, highly available, and dynamic solutions on Google Cloud Platform.",
+		skills: ["GCP Architecture", "Cloud Solutions", "Infrastructure Design", "Security & Compliance"],
+	},
+	{
+		title: "Red Hat Certified Engineer (RHCE)",
+		issuer: "Red Hat",
+		date: "November 2021",
+		credlyUrl: "https://www.credly.com/badges/cfe04063-7c3a-4009-9716-bbf5ec0ce0e9/linked_in_profile",
+		icon: "🔴",
+		description: "Advanced certification focused on Ansible automation, configuration management, and system automation.",
+		skills: ["Ansible", "Automation", "Configuration Management", "System Administration"],
+	},
+	{
+		title: "Red Hat Certified System Administrator (RHCSA)",
+		issuer: "Red Hat",
+		date: "February 2021",
+		credlyUrl: "https://www.credly.com/badges/7dc13584-f933-4587-80e3-f8e574db95a9/linked_in_profile",
+		icon: "🐧",
+		description: "Foundation certification covering essential Linux system administration tasks and advanced Linux concepts.",
+		skills: ["Linux Administration", "System Management", "Troubleshooting", "Security"],
+	},
+	{
+		title: "Red Hat Certified Specialist in Containers and Kubernetes",
+		issuer: "Red Hat",
+		date: "February 2023",
+		credlyUrl: "https://www.credly.com/badges/252121dc-f1ac-4ebf-ae64-c58ec3abc345/linked_in_profile",
+		icon: "🐳",
+		description: "Specialized certification in container orchestration, Kubernetes administration, and cloud-native application deployment.",
+		skills: ["Kubernetes", "Container Orchestration", "OpenShift", "Cloud Native"],
+	},
+];
+---
+
+<PageLayout meta={meta}>
+	<h1 class="title mb-12">Certifications</h1>
+	<div class="prose prose-sm prose-cactus max-w-none">
+		<p class="text-lg mb-8">
+			I'm a strong believer in continuous learning and validating knowledge through certifications. Here are the credentials I've earned so far on my journey.
+		</p>
+
+		<!-- Certifications List -->
+		<div class="space-y-8 not-prose">
+			{certifications.map((cert) => (
+				<div class="border border-accent-2 rounded-lg p-6 hover:shadow-lg transition-shadow">
+					<div class="flex items-start gap-4">
+						<span class="text-4xl flex-shrink-0">{cert.icon}</span>
+						<div class="flex-grow">
+							<div class="flex items-start justify-between mb-2">
+								<h2 class="text-xl font-bold !mt-0">{cert.title}</h2>
+								<a
+									class="cactus-link text-sm whitespace-nowrap ml-4"
+									href={cert.credlyUrl}
+									rel="noreferrer"
+									target="_blank"
+								>
+									View Badge →
+								</a>
+							</div>
+							<p class="text-sm text-accent-2 font-semibold mb-3">
+								{cert.issuer} • {cert.date}
+							</p>
+							<p class="mb-4">{cert.description}</p>
+							<div class="flex flex-wrap gap-2">
+								{cert.skills.map((skill) => (
+									<span class="inline-block bg-accent-2/10 text-accent-2 px-3 py-1 rounded-full text-xs font-semibold">
+										{skill}
+									</span>
+								))}
+							</div>
+						</div>
+					</div>
+				</div>
+			))}
+		</div>
+
+		<!-- Why Certifications Matter -->
+		<div class="mt-12 pt-8 border-t-2 border-accent-2">
+			<h2>Why Certifications?</h2>
+			<p>
+				For me, certifications aren't just badges to collect - they're structured learning paths that force me to dive deep into technologies and validate my understanding. Each certification represents hundreds of hours of study, hands-on labs, and real-world application.
+			</p>
+			<p>
+				More importantly, they push me to learn things systematically rather than just picking up bits and pieces from Stack Overflow (though let's be honest, we all do that too 😄).
+			</p>
+		</div>
+
+		<!-- What's Next -->
+		<div class="mt-12 pt-8 border-t-2 border-accent-2">
+			<h2>What's Next? 🎯</h2>
+			<p>
+				I'm currently eyeing a few more certifications to expand my expertise:
+			</p>
+			<ul class="list-disc list-inside space-y-2">
+				<li>
+					<strong>AWS Certified Solutions Architect - Professional:</strong> To deepen my AWS architecture knowledge
+				</li>
+				<li>
+					<strong>Certified Kubernetes Administrator (CKA):</strong> Because you can never know Kubernetes well enough
+				</li>
+				<li>
+					<strong>HashiCorp Certified: Terraform Associate:</strong> To formalize my Terraform expertise
+				</li>
+			</ul>
+			<p class="mt-4">
+				Follow along on <a
+					class="cactus-link inline-block"
+					href="https://www.linkedin.com/in/shptk/"
+					rel="noreferrer"
+					target="_blank">LinkedIn</a
+				> to see when I add these to my collection!
+			</p>
+		</div>
+	</div>
+</PageLayout>

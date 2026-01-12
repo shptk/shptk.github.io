@@ -1,0 +1,152 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "My professional journey through DevOps and Platform Engineering",
+	title: "Experience",
+};
+---
+
+<PageLayout meta={meta}>
+	<h1 class="title mb-12">Experience</h1>
+	<div class="prose prose-sm prose-cactus max-w-none">
+		<p class="text-lg mb-8">
+			Here's my journey through the world of DevOps and Platform Engineering, from my first internship to building production-grade infrastructure for customers across multiple clouds.
+		</p>
+
+		<!-- Facets.cloud - Forward Deployed Engineer -->
+		<div class="mb-12 border-l-4 border-accent-2 pl-6">
+			<h2 class="!mt-0">Forward Deployed Engineer</h2>
+			<p class="text-sm text-accent-2 font-semibold mb-2">
+				<a class="cactus-link" href="https://facets.cloud" rel="noreferrer" target="_blank">Facets.cloud</a> • Platform Engineer Track • Bangalore, India
+			</p>
+			<p class="text-sm italic mb-4">June 2023 - Present</p>
+
+			<p>
+				Taking the platform engineering role to the next level by working directly with customers. Think of it as infrastructure consulting meets hands-on implementation.
+			</p>
+
+			<h3 class="text-base">Key Achievements:</h3>
+			<ul class="list-disc list-inside space-y-2">
+				<li>
+					<strong>Customer Onboarding at Scale:</strong> Successfully onboarded 3+ large-scale customers by redesigning their multi-cloud infrastructure. Each engagement involved reverse-engineering complex existing setups and providing elegant solutions that integrated seamlessly with our product.
+				</li>
+				<li>
+					<strong>Knowledge Transfer:</strong> Trained the entire Customer Success team to handle customer support, significantly reducing the load on Platform Engineers. Built comprehensive documentation and conducted hands-on workshops.
+				</li>
+				<li>
+					<strong>AI-Powered Cost Optimization:</strong> Developed a knowledge pool of infrastructure cost optimization best practices as an internal MCP server and Claude.ai skill. This automated my role as a cost manager and enabled AI-driven analysis of customer infrastructure. Pretty meta, right?
+				</li>
+				<li>
+					<strong>Infrastructure Blueprints:</strong> Created reusable infrastructure blueprints as part of customer onboarding, making it easier to provision and hand over complex multi-cloud setups to customers following DevOps best practices.
+				</li>
+			</ul>
+
+			<p class="mt-4">
+				<strong>Tech Stack:</strong> AWS, GCP, Azure, Kubernetes, Terraform, Python, MCP (Model Context Protocol)
+			</p>
+		</div>
+
+		<!-- Facets.cloud - Platform Engineer -->
+		<div class="mb-12 border-l-4 border-accent-2 pl-6">
+			<h2 class="!mt-0">Platform Engineer</h2>
+			<p class="text-sm text-accent-2 font-semibold mb-2">
+				<a class="cactus-link" href="https://facets.cloud" rel="noreferrer" target="_blank">Facets.cloud</a> • Full-time • Bangalore, India
+			</p>
+			<p class="text-sm italic mb-4">June 2023 - Present</p>
+
+			<p>
+				Got converted from intern to full-time and jumped straight into the deep end of multi-cloud infrastructure and customer support.
+			</p>
+
+			<h3 class="text-base">What I Built:</h3>
+			<ul class="list-disc list-inside space-y-2">
+				<li>
+					<strong>Terraform Module Factory:</strong> Developed 40+ Terraform modules (multi-cloud + Kubernetes) based purely on customer requirements. These modules became core product extensions used across multiple deployments.
+				</li>
+				<li>
+					<strong>Observability Overhaul:</strong> Revamped Prometheus queries, Grafana dashboards, and alerting system with Slack integration. Made monitoring actually useful instead of noisy.
+				</li>
+				<li>
+					<strong>Kubernetes Migration Automation:</strong> Created Python migration templates for EKS, AKS, and GKE control plane version upgrades. Turned a manual, error-prone process into automated, repeatable upgrades.
+				</li>
+				<li>
+					<strong>Production Support:</strong> Provided hands-on support to customers for production-grade cluster optimizations, debugging networking issues, and infrastructure troubleshooting. Late-night debugging sessions included!
+				</li>
+				<li>
+					<strong>ISO 27001 Compliance:</strong> Analyzed and upgraded production infrastructure and security to achieve ISO 27001 compliance. Learned a ton about security standards and best practices.
+				</li>
+			</ul>
+
+			<p class="mt-4">
+				<strong>Tech Stack:</strong> AWS, GCP, Azure, Kubernetes, Python, Prometheus, Grafana, Loki, MongoDB
+			</p>
+		</div>
+
+		<!-- Facets.cloud - DevOps Intern -->
+		<div class="mb-12 border-l-4 border-accent-2 pl-6">
+			<h2 class="!mt-0">DevOps Intern</h2>
+			<p class="text-sm text-accent-2 font-semibold mb-2">
+				<a class="cactus-link" href="https://facets.cloud" rel="noreferrer" target="_blank">Facets.cloud</a> • Remote Internship
+			</p>
+			<p class="text-sm italic mb-4">Feb 2023 - June 2023</p>
+
+			<p>
+				My introduction to the world of Kubernetes, Helm, and production infrastructure. Learned fast, broke things (in dev!), and built some cool stuff.
+			</p>
+
+			<h3 class="text-base">Major Projects:</h3>
+			<ul class="list-disc list-inside space-y-2">
+				<li>
+					<strong>Helm Chart Development:</strong> Developed and published multiple Helm charts as part of product extensions. Got really comfortable with K8s manifests and chart best practices.
+				</li>
+				<li>
+					<strong>Cluster Efficiency Automation:</strong> Built a Python-based metrics scraper that would scrape custom Prometheus metrics from 100+ customer clusters in parallel using multi-threading. The tool analyzed cluster efficiency/utilization and suggested optimizations to improve resource usage. Saved customers real money!
+				</li>
+			</ul>
+
+			<p class="mt-4">
+				<strong>Tech Stack:</strong> AWS, Python, Kubernetes, Helm, Terraform
+			</p>
+		</div>
+
+		<!-- Opslyft - DevOps Intern -->
+		<div class="mb-12 border-l-4 border-accent-2 pl-6">
+			<h2 class="!mt-0">DevOps Intern</h2>
+			<p class="text-sm text-accent-2 font-semibold mb-2">
+				<a class="cactus-link" href="https://opslyft.com" rel="noreferrer" target="_blank">Opslyft</a> • Remote Internship
+			</p>
+			<p class="text-sm italic mb-4">April 2022 - Feb 2023</p>
+
+			<p>
+				My first ever DevOps role! Started here fresh out of college and got my hands dirty with cloud migrations, CI/CD, and cost optimization.
+			</p>
+
+			<h3 class="text-base">Learning & Building:</h3>
+			<ul class="list-disc list-inside space-y-2">
+				<li>
+					<strong>Modernization Migration:</strong> Migrated from traditional VM-based legacy monolith architecture to containerized microservices on AWS ECS Fargate. Also migrated logging from CloudWatch to Loki using Fluentbit sidecars, which saved 30% of total cloud costs. My first real "win" in production!
+				</li>
+				<li>
+					<strong>CI/CD Transformation:</strong> Migrated from legacy Jenkins pipelines to GitHub Actions, dramatically increasing the speed and maintainability of CI/CD pipelines. No more Jenkins plugin hell!
+				</li>
+			</ul>
+
+			<p class="mt-4">
+				<strong>Tech Stack:</strong> AWS ECS Fargate, GitHub Actions, Jenkins CI/CD, AWS EventBridge
+			</p>
+		</div>
+
+		<!-- Education -->
+		<div class="mt-16 pt-8 border-t-2 border-accent-2">
+			<h2>Education</h2>
+			<div class="border-l-4 border-accent-2 pl-6">
+				<h3 class="!mt-0">B.Tech in Computer Science</h3>
+				<p class="text-sm text-accent-2 font-semibold mb-2">
+					SRMS CET, Bareilly • Affiliated to Abdul Kalam Tech. University (A.K.T.U)
+				</p>
+				<p class="text-sm italic">July 2019 - July 2023</p>
+			</div>
+		</div>
+	</div>
+</PageLayout>
