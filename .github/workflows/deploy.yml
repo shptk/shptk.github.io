@@ -32,8 +32,8 @@ jobs:
           # path: .
           # Node version to use (default: 22)
           node-version: 22
-          # Package manager to use (auto-detected from lockfile)
-          # package-manager: pnpm@latest
+          # Package manager to use - explicitly use npm
+          package-manager: npm@latest
 
   deploy:
     needs: build
