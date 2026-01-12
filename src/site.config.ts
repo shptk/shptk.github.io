@@ -27,7 +27,7 @@ export const siteConfig: SiteConfig = {
 	*/
 	title: "Shashwat Pathak",
 	// ! Please remember to replace the following site property with your own domain, used in astro.config.ts
-	url: "https://shptk.github.io/",
+	url: "https://pathak.uk/",
 };
 
 // Used to generate links in both the Header & Footer.
