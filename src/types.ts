@@ -12,6 +12,12 @@ export interface SiteConfig {
 }
 
 export interface PaginationLink {
+	/**
+	 * Dictionary key for the link label, resolved through src/i18n/ui.ts. Preferred
+	 * over `text` so the label is localised; the directional arrow is supplied by
+	 * Paginator.astro and stays outside the translated string.
+	 */
+	labelKey?: import("@/i18n/ui").UIKey | undefined;
 	srLabel?: string;
 	text?: string;
 	url: string;
@@ -22,6 +28,12 @@ export interface SiteMeta {
 	description?: string;
 	ogImage?: string | undefined;
 	title: string;
+	/**
+	 * German page title. The document <title> is the one piece of copy that
+	 * cannot be rendered twice and hidden with CSS, so it is swapped at runtime
+	 * by src/components/LangProvider.astro. Falls back to `title` when unset.
+	 */
+	titleDe?: string | undefined;
 }
 
 /** Webmentions */

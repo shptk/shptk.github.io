@@ -1,67 +1,109 @@
 ---
+import LangBlock from "@/components/LangBlock.astro";
+import T from "@/components/T.astro";
+import { t } from "@/i18n/ui";
 import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-	description: "Platform Engineer based in Bangalore, India. Building cloud-native infrastructure and automating everything in sight.",
-	title: "About",
+	description:
+		"Platform Engineer based in Bangalore, India. Building cloud-native infrastructure and automating everything in sight.",
+	title: t("en", "page.about"),
+	titleDe: t("de", "page.about"),
 };
 ---
 
 <PageLayout meta={meta}>
-	<h1 class="title mb-12">About Me</h1>
-	<div class="prose prose-sm prose-cactus max-w-none">
-		<p>
-			Hey there! I'm Shashwat, a Platform Engineer based in Bangalore, India. I spend my days (and sometimes nights) building and scaling cloud infrastructure across AWS, GCP, and Azure.
-		</p>
-		<p>
-			My journey started back in 2022 when I landed my first internship at <a
-				class="cactus-link inline-block"
-				href="https://opslyft.com"
-				rel="noreferrer"
-				target="_blank">Opslyft</a
-			>. Since then, I've been fortunate to work with <a
-				class="cactus-link inline-block"
-				href="https://facets.cloud"
-				rel="noreferrer"
-				target="_blank">Facets.cloud</a
-			>, where I've worn multiple hats - from DevOps intern to Platform Engineer and Forward Deployed Engineer.
-		</p>
+	<h1 class="title mb-12"><T tKey="about.heading" /></h1>
+	<LangBlock>
+		<Fragment slot="en">
+			<div class="prose prose-sm prose-cactus max-w-none">
+				<p>
+					Hey there! I'm Shashwat, a Platform Engineer based in Bangalore, India. I spend my days
+					(and sometimes nights) building and scaling cloud infrastructure across AWS, GCP, and
+					Azure.
+				</p>
+				<p>
+					My journey started back in 2022 when I landed my first internship at <a
+						class="cactus-link inline-block"
+						href="https://opslyft.com"
+						rel="noreferrer"
+						target="_blank">Opslyft</a
+					>. Since then, I've been fortunate to work with <a
+						class="cactus-link inline-block"
+						href="https://facets.cloud"
+						rel="noreferrer"
+						target="_blank">Facets.cloud</a
+					>, where I've worn multiple hats - from DevOps intern to Platform Engineer and Forward
+					Deployed Engineer.
+				</p>
 
-		<h2>What I Do</h2>
-		<p>
-			I'm all about making infrastructure smarter and more efficient. Whether it's crafting Terraform modules, optimizing Kubernetes clusters, or setting up observability stacks with Prometheus and Grafana, I love solving complex infrastructure puzzles.
-		</p>
-		<p>
-			Recently, I've been exploring how AI can augment DevOps workflows - I even built an MCP server and Claude.ai skill to automate infrastructure cost optimization. Pretty cool stuff!
-		</p>
+				<h2>What I Do</h2>
+				<p>
+					I'm all about making infrastructure smarter and more efficient. Whether it's crafting
+					Terraform modules, optimizing Kubernetes clusters, or setting up observability stacks with
+					Prometheus and Grafana, I love solving complex infrastructure puzzles.
+				</p>
+				<p>
+					Recently, I've been exploring how AI can augment DevOps workflows - I even built an MCP
+					server and Claude.ai skill to automate infrastructure cost optimization. Pretty cool
+					stuff!
+				</p>
 
-		<h2>When I'm Not Coding</h2>
-		<p>
-			You'll probably find me tinkering with new cloud technologies, experimenting with automation tools, exploring opensource, or diving deep into system design patterns. I'm also a big fan of learning through certifications - I've got a few RedHat certs and recently earned my Google Cloud Professional Architect certification. Currently, I'm getting my hands dirty with Golang to expand my programming toolkit.
-		</p>
-		<p>
-			I believe in learning by doing and sharing what I've learned along the way. That's why I maintain this blog - to document my journey, share interesting problems I've solved, and hopefully help someone else avoid the same pitfalls I've encountered.
-		</p>
+				<h2>When I'm Not Coding</h2>
+				<p>
+					You'll probably find me tinkering with new cloud technologies, experimenting with
+					automation tools, exploring opensource, or diving deep into system design patterns. I'm
+					also a big fan of learning through certifications - I've got a few RedHat certs and
+					recently earned my Google Cloud Professional Architect certification. Currently, I'm
+					getting my hands dirty with Golang to expand my programming toolkit.
+				</p>
+				<p>
+					I believe in learning by doing and sharing what I've learned along the way. That's why I
+					maintain this blog - to document my journey, share interesting problems I've solved, and
+					hopefully help someone else avoid the same pitfalls I've encountered.
+				</p>
 
-		<h2>Get in Touch</h2>
-		<p>
-			Want to chat about Kubernetes, cloud architecture, or the latest DevOps trends? Feel free to reach out:
-		</p>
-		<ul class="list-inside list-disc" role="list">
-			<li>Email: <a class="cactus-link inline-block" href="mailto:shashwatpathak100@gmail.com">shashwatpathak100@gmail.com</a></li>
-			<li>GitHub: <a class="cactus-link inline-block" href="https://github.com/shptk" rel="noreferrer" target="_blank">@shptk</a></li>
-			<li>LinkedIn: <a class="cactus-link inline-block" href="https://www.linkedin.com/in/shptk/" rel="noreferrer" target="_blank">in/shptk</a></li>
-			<li>Location: Bangalore, India 🇮🇳</li>
-		</ul>
+				<h2>Get in Touch</h2>
+				<p>
+					Want to chat about Kubernetes, cloud architecture, or the latest DevOps trends? Feel free
+					to reach out:
+				</p>
+				<ul class="list-inside list-disc" role="list">
+					<li>
+						Email: <a class="cactus-link inline-block" href="mailto:shashwatpathak100@gmail.com"
+							>shashwatpathak100@gmail.com</a>
+					</li>
+					<li>
+						GitHub: <a
+							class="cactus-link inline-block"
+							href="https://github.com/shptk"
+							rel="noreferrer"
+							target="_blank">@shptk</a>
+					</li>
+					<li>
+						LinkedIn: <a
+							class="cactus-link inline-block"
+							href="https://www.linkedin.com/in/shptk/"
+							rel="noreferrer"
+							target="_blank">in/shptk</a>
+					</li>
+					<li>Location: Bangalore, India 🇮🇳</li>
+				</ul>
 
-		<div class="mt-8 not-prose">
-			<a
-				href="/Shashwat-Pathak-Resume.pdf"
-				class="inline-block px-6 py-3 bg-accent-2 text-bgColor rounded-lg font-semibold hover:opacity-90 transition-opacity"
-				download
-			>
-				📄 Download My Resume
-			</a>
-		</div>
-	</div>
+				<div class="not-prose mt-8">
+					<a
+						href="/Shashwat-Pathak-Resume.pdf"
+						class="bg-accent-2 text-bgColor inline-block rounded-lg px-6 py-3 font-semibold transition-opacity hover:opacity-90"
+						download
+					>
+						📄 Download My Resume
+					</a>
+				</div>
+			</div>
+		</Fragment>
+		{
+			/* TODO(de): add <Fragment slot="de"> with the German version of this block.
+		    Until it exists, LangBlock renders the English copy above in both locales. */
+		}
+	</LangBlock>
 </PageLayout>

@@ -1,0 +1,24 @@
+---
+/**
+ * Block-level paired translation. Both locales are rendered into the page and
+ * global.css hides the inactive one, so switching is instant and never flashes.
+ *
+ *   <LangBlock>
+ *     <Fragment slot="en">
+ *       <p>I'm a <strong>Platform Engineer</strong> based in Bangalore.</p>
+ *     </Fragment>
+ *     <Fragment slot="de">
+ *       <p>Ich bin <strong>Platform Engineer</strong> in Bangalore.</p>
+ *     </Fragment>
+ *   </LangBlock>
+ *
+ * If the `de` slot is omitted or empty, the English content is rendered in its
+ * place. That keeps the German site readable while the translation is still
+ * being written, rather than showing an empty page.
+ */
+const en = await Astro.slots.render("en");
+const deSlot = Astro.slots.has("de") ? await Astro.slots.render("de") : "";
+const de = deSlot.trim() === "" ? en : deSlot;
+---
+
+<div data-l="en" set:html={en} /><div data-l="de" set:html={de} />

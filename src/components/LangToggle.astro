@@ -1,0 +1,49 @@
+---
+/**
+ * EN | DE language switcher.
+ *
+ * Text codes rather than flags: a flag names a country, not a language, and a
+ * German flag reads as excluding Austrian and Swiss visitors.
+ *
+ * The active state is driven purely by `html[data-lang]` in global.css, so the
+ * correct option is highlighted on first paint with no JS work.
+ */
+---
+
+<lang-toggle class="ms-2 sm:ms-4">
+	<div class="flex h-9 items-center gap-x-1 text-xs font-semibold">
+		<button
+			aria-label="English"
+			aria-pressed="false"
+			class="hover:text-accent cursor-pointer rounded-md px-1 py-2"
+			data-lang-option="en"
+			type="button">EN</button
+		>
+		<span aria-hidden="true" class="text-gray-500 dark:text-gray-400">|</span>
+		<button
+			aria-label="Deutsch"
+			aria-pressed="false"
+			class="hover:text-accent cursor-pointer rounded-md px-1 py-2"
+			data-lang-option="de"
+			type="button">DE</button
+		>
+	</div>
+</lang-toggle>
+
+<script>
+	class LangToggle extends HTMLElement {
+		connectedCallback() {
+			for (const button of this.querySelectorAll<HTMLButtonElement>("[data-lang-option]")) {
+				button.addEventListener("click", () => {
+					const locale = button.dataset.langOption;
+					if (locale !== "en" && locale !== "de") return;
+
+					// Handled by src/components/LangProvider.astro, which also persists the cookie.
+					document.dispatchEvent(new CustomEvent("lang-change", { detail: { locale } }));
+				});
+			}
+		}
+	}
+
+	customElements.define("lang-toggle", LangToggle);
+</script>

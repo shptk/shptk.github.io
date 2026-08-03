@@ -6,17 +6,19 @@ import "@/styles/global.css";
 
 type Props = SiteMeta;
 
-const { articleDate, description, ogImage, title } = Astro.props;
+const { articleDate, description, ogImage, title, titleDe } = Astro.props;
 
 const titleSeparator = "•";
 const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`;
+const siteTitleDe = `${titleDe ?? title} ${titleSeparator} ${siteConfig.title}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url).href;
 ---
 
 <meta charset="utf-8" />
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-<title>{siteTitle}</title>
+{/* Rendered in the default locale (German); swapped by LangProvider.astro. */}
+<title data-title-de={siteTitleDe} data-title-en={siteTitle}>{siteTitleDe}</title>
 
 {/* Icons */}
 <link href="/icon.svg" rel="icon" type="image/svg+xml" />

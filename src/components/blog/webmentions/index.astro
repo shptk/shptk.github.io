@@ -1,4 +1,5 @@
 ---
+import T from "@/components/T.astro";
 import { getWebmentionsForUrl } from "@/utils/webmentions";
 import Comments from "./Comments.astro";
 import Likes from "./Likes.astro";
@@ -12,7 +13,7 @@ if (!webMentions.length) return;
 ---
 
 <hr class="border-solid" />
-<h2 class="mb-8 before:hidden">Webmentions for this post</h2>
+<h2 class="mb-8 before:hidden"><T tKey="webmentions.heading" /></h2>
 <div class="space-y-10">
 	<Likes mentions={webMentions} />
 	<Comments mentions={webMentions} />

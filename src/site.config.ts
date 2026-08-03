@@ -1,4 +1,5 @@
 import type { AstroExpressiveCodeOptions } from "astro-expressive-code";
+import type { UIKey } from "@/i18n/ui";
 import type { SiteConfig } from "@/types";
 
 export const siteConfig: SiteConfig = {
@@ -14,7 +15,8 @@ export const siteConfig: SiteConfig = {
 		},
 	},
 	// Used as the default description meta property and webmanifest description
-	description: "Platform Engineer with 2.5+ years of experience in DevOps, Cloud Architecture, and Kubernetes. Building scalable infrastructure across AWS, GCP, and Azure.",
+	description:
+		"Platform Engineer with 2.5+ years of experience in DevOps, Cloud Architecture, and Kubernetes. Building scalable infrastructure across AWS, GCP, and Azure.",
 	// HTML lang property, found in src/layouts/Base.astro L:18 & astro.config.ts L:48
 	lang: "en-US",
 	// Meta property, found in src/components/BaseHead.astro L:42
@@ -30,33 +32,44 @@ export const siteConfig: SiteConfig = {
 	url: "https://shashwat.de/",
 };
 
-// Used to generate links in both the Header & Footer.
-export const menuLinks: { path: string; title: string }[] = [
+/*
+	Used to generate links in both the Header & Footer. `key` resolves the label
+	through src/i18n/ui.ts; `title` is the English fallback for any consumer that
+	renders outside the localised page (og-image, feeds).
+*/
+export const menuLinks: { key: UIKey; path: string; title: string }[] = [
 	{
+		key: "nav.home",
 		path: "/",
 		title: "Home",
 	},
 	{
+		key: "nav.about",
 		path: "/about/",
 		title: "About",
 	},
 	{
+		key: "nav.experience",
 		path: "/experience/",
 		title: "Experience",
 	},
 	{
+		key: "nav.projects",
 		path: "/projects/",
 		title: "Projects",
 	},
 	{
+		key: "nav.skills",
 		path: "/skills/",
 		title: "Skills",
 	},
 	{
+		key: "nav.certifications",
 		path: "/certifications/",
 		title: "Certifications",
 	},
 	{
+		key: "nav.blog",
 		path: "/posts/",
 		title: "Blog",
 	},

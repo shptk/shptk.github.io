@@ -41,6 +41,33 @@
 		scroll-margin-block: 5ex;
 	}
 
+	/*
+		EN/DE localisation. Both locales are rendered into the page and CSS picks
+		the visible one, so switching never flashes and never needs a round trip.
+		`display: contents` keeps the wrapper structurally transparent, so wrapping
+		a block in <Lang> does not disturb prose spacing or grid layout.
+	*/
+	[data-l] {
+		display: contents;
+	}
+
+	html[data-lang="en"] [data-l="de"],
+	html[data-lang="de"] [data-l="en"] {
+		display: none;
+	}
+
+	/* Without JS no data-lang is set, so fall back to this surface's default locale. */
+	html:not([data-lang]) [data-l="en"] {
+		display: none;
+	}
+
+	/* Language switcher: the active locale is derived from the root attribute. */
+	html[data-lang="en"] [data-lang-option="en"],
+	html[data-lang="de"] [data-lang-option="de"] {
+		color: var(--color-accent);
+		font-weight: 700;
+	}
+
 	@view-transition {
 		navigation: auto;
 	}

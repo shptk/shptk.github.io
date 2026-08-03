@@ -4,7 +4,9 @@ import type { GetStaticPaths, Page } from "astro";
 import { Icon } from "astro-icon/components";
 import Note from "@/components/note/Note.astro";
 import Pagination from "@/components/Paginator.astro";
+import T from "@/components/T.astro";
 import PageLayout from "@/layouts/Base.astro";
+import type { PaginationLink } from "@/types";
 import { collectionDateSort } from "@/utils/date";
 
 export const getStaticPaths = (async ({ paginate }) => {
@@ -25,16 +27,16 @@ const meta = {
 	title: "Notes",
 };
 
-const paginationProps = {
+const paginationProps: { nextUrl?: PaginationLink; prevUrl?: PaginationLink } = {
 	...(page.url.prev && {
 		prevUrl: {
-			text: "← Previous Page",
+			labelKey: "paginator.previousPage",
 			url: page.url.prev,
 		},
 	}),
 	...(page.url.next && {
 		nextUrl: {
-			text: "Next Page →",
+			labelKey: "paginator.nextPage",
 			url: page.url.next,
 		},
 	}),
@@ -45,7 +47,7 @@ const paginationProps = {
 	<section>
 		<h1 class="title mb-12 flex items-center gap-3">
 			Notes <a class="text-accent" href="/notes/rss.xml" target="_blank">
-				<span class="sr-only">RSS feed</span>
+				<span class="sr-only"><T tKey="feed.rss" /></span>
 				<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name="mdi:rss" />
 			</a>
 		</h1>

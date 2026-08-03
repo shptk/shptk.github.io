@@ -1,0 +1,21 @@
+---
+/**
+ * Inline translated string from the src/i18n/ui.ts dictionary.
+ *
+ * Renders both locales; global.css hides the inactive one. Use this for short
+ * inline text (nav labels, headings, button text). For paragraphs or anything
+ * containing markup, use <LangBlock> instead — a <span> may not wrap block
+ * elements.
+ *
+ *   <T tKey="nav.about" />
+ */
+import { t, type UIKey } from "@/i18n/ui";
+
+interface Props {
+	tKey: UIKey;
+}
+
+const { tKey } = Astro.props;
+---
+
+<span data-l="en">{t("en", tKey)}</span><span data-l="de">{t("de", tKey)}</span>

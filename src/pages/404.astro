@@ -1,13 +1,16 @@
 ---
+import T from "@/components/T.astro";
+import { t } from "@/i18n/ui";
 import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-	description: "Oops! It looks like this page is lost in space!",
-	title: "Oops! You found a missing page!",
+	description: t("de", "404.description"),
+	title: t("en", "404.title"),
+	titleDe: t("de", "404.title"),
 };
 ---
 
 <PageLayout meta={meta}>
-	<h1 class="title mb-12">404 | Oops something went wrong</h1>
-	<p class="mb-8">Please use the navigation to find your way back</p>
+	<h1 class="title mb-12"><T tKey="404.heading" /></h1>
+	<p class="mb-8"><T tKey="404.body" /></p>
 </PageLayout>

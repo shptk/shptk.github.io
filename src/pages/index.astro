@@ -1,9 +1,12 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import PostPreview from "@/components/blog/PostPreview.astro";
+import LangBlock from "@/components/LangBlock.astro";
 import Note from "@/components/note/Note.astro";
 import SocialList from "@/components/SocialList.astro";
+import T from "@/components/T.astro";
 import { getAllPosts } from "@/data/post";
+import { t } from "@/i18n/ui";
 import PageLayout from "@/layouts/Base.astro";
 import { collectionDateSort } from "@/utils/date";
 
@@ -25,30 +28,47 @@ const latestNotes = allNotes
 	.slice(0, MAX_NOTES) as CollectionEntry<"note">[];
 ---
 
-<PageLayout meta={{ title: "Home" }}>
+<PageLayout meta={{ title: t("en", "home.title"), titleDe: t("de", "home.title") }}>
 	<section>
-		<h1 class="title mb-12">Hey, I'm Shashwat 👋</h1>
-		<div class="prose prose-cactus mb-8">
-			<p class="text-lg">
-				I'm a <strong>Platform Engineer</strong> based in Bangalore, India, specializing in building and scaling cloud-native infrastructure across AWS, GCP, and Azure.
-			</p>
-			<p>
-				With 2.5+ years of experience in DevOps and Platform Engineering, I've helped migrate legacy architectures to modern microservices, built 40+ Terraform modules, automated Kubernetes cluster optimizations, and even created AI-powered infrastructure cost optimization tools.
-			</p>
-			<p>
-				When I'm not architecting infrastructure or debugging production issues at 3 AM, I'm probably exploring new cloud technologies, exploring opensource, learning system design, or earning certifications (recently got my GCP Professional Cloud Architect!). Currently also getting my hands dirty with Golang.
-			</p>
-			<div class="not-prose">
-				<a href="/about/" class="cactus-link inline-block mr-4">Learn more about me →</a>
-				<a href="/experience/" class="cactus-link inline-block">View my experience →</a>
-			</div>
-		</div>
+		<h1 class="title mb-12"><T tKey="home.greeting" /></h1>
+		<LangBlock>
+			<Fragment slot="en">
+				<div class="prose prose-cactus mb-8">
+					<p class="text-lg">
+						I'm a <strong>Platform Engineer</strong> based in Bangalore, India, specializing in building
+						and scaling cloud-native infrastructure across AWS, GCP, and Azure.
+					</p>
+					<p>
+						With 2.5+ years of experience in DevOps and Platform Engineering, I've helped migrate
+						legacy architectures to modern microservices, built 40+ Terraform modules, automated
+						Kubernetes cluster optimizations, and even created AI-powered infrastructure cost
+						optimization tools.
+					</p>
+					<p>
+						When I'm not architecting infrastructure or debugging production issues at 3 AM, I'm
+						probably exploring new cloud technologies, exploring opensource, learning system design,
+						or earning certifications (recently got my GCP Professional Cloud Architect!). Currently
+						also getting my hands dirty with Golang.
+					</p>
+					<div class="not-prose">
+						<a href="/about/" class="cactus-link mr-4 inline-block">Learn more about me →</a>
+						<a href="/experience/" class="cactus-link inline-block">View my experience →</a>
+					</div>
+				</div>
+			</Fragment>
+			{
+				/* TODO(de): add <Fragment slot="de"> with the German version of this block.
+			    Until it exists, LangBlock renders the English copy above in both locales. */
+			}
+		</LangBlock>
 		<SocialList />
 	</section>
 	{
 		pinnedPosts.length > 0 && (
 			<section class="mt-16">
-				<h2 class="title mb-6 text-xl">Pinned Posts</h2>
+				<h2 class="title mb-6 text-xl">
+					<T tKey="home.pinnedPosts" />
+				</h2>
 				<ul class="space-y-4" role="list">
 					{pinnedPosts.map((p) => (
 						<li class="grid gap-1 sm:grid-cols-[auto_1fr]">
@@ -60,7 +80,9 @@ const latestNotes = allNotes
 		)
 	}
 	<section class="mt-16">
-		<h2 class="title text-accent mb-6 text-xl"><a href="/posts/">Posts</a></h2>
+		<h2 class="title text-accent mb-6 text-xl">
+			<a href="/posts/"><T tKey="home.posts" /></a>
+		</h2>
 		<ul class="space-y-4" role="list">
 			{
 				latestPosts.map((p) => (
@@ -75,7 +97,9 @@ const latestNotes = allNotes
 		latestNotes.length > 0 && (
 			<section class="mt-16">
 				<h2 class="title text-accent mb-6 text-xl">
-					<a href="/notes/">Notes</a>
+					<a href="/notes/">
+						<T tKey="home.notes" />
+					</a>
 				</h2>
 				<ul class="space-y-6" role="list">
 					{latestNotes.map((note) => (

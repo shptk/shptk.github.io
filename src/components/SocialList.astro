@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import T from "@/components/T.astro";
 
 /** 
 	Uses https://www.astroicon.dev/getting-started/
@@ -31,7 +32,7 @@ const socialLinks: {
 ---
 
 <div class="flex flex-wrap items-end gap-x-2">
-	<p>Find me on</p>
+	<p><T tKey="social.findMeOn" /></p>
 	<ul class="flex flex-1 items-center gap-x-2 sm:flex-initial">
 		{
 			socialLinks.map(({ friendlyName, isWebmention, link, name }) => (

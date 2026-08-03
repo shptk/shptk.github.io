@@ -1,0 +1,76 @@
+{/* Inlined and parser-blocking so the correct locale is set before first paint. */}
+<script is:inline>
+	(() => {
+		const DEFAULT_LOCALE = "de"; // apex opens in German
+		const APEX = "shashwat.de";
+		const ONE_YEAR = 60 * 60 * 24 * 365;
+
+		function readLocale() {
+			const match = document.cookie.match(/(?:^|;\s*)lang=(en|de)(?:;|$)/);
+			return match ? match[1] : DEFAULT_LOCALE;
+		}
+
+		function writeLocale(locale) {
+			const host = window.location.hostname;
+			const domain = host === APEX || host.endsWith("." + APEX) ? "; domain=." + APEX : "";
+			document.cookie =
+				"lang=" + locale + "; path=/; max-age=" + ONE_YEAR + "; SameSite=Lax" + domain;
+		}
+
+		/*
+			Anything that reaches into the page body. This script runs at the top of
+			<body>, so on first load the header does not exist yet — defer until the
+			document has been parsed, or the switcher and aria labels are missed.
+		*/
+		function syncDocument(locale) {
+			// <title> can't be duplicated in the DOM the way body copy is, so swap it here.
+			const titleEl = document.querySelector("title[data-title-en]");
+			if (titleEl) {
+				const next = titleEl.getAttribute("data-title-" + locale);
+				if (next) titleEl.textContent = next;
+			}
+
+			// Attributes can't be duplicated either. Opt in with data-aria-en / data-aria-de.
+			for (const el of document.querySelectorAll("[data-aria-en]")) {
+				const next = el.getAttribute("data-aria-" + locale) || el.getAttribute("data-aria-en");
+				if (next) el.setAttribute("aria-label", next);
+			}
+
+			// Keep the switcher's pressed state in sync.
+			for (const button of document.querySelectorAll("[data-lang-option]")) {
+				button.setAttribute(
+					"aria-pressed",
+					String(button.getAttribute("data-lang-option") === locale),
+				);
+			}
+		}
+
+		function applyLocale(locale, persist) {
+			if (locale !== "en" && locale !== "de") {
+				return console.warn(`Invalid locale '${locale}'. Expected 'en' or 'de'.`);
+			}
+
+			// Must happen synchronously: global.css keys off data-lang to pick the
+			// visible copy, so setting it late would flash the wrong language.
+			const root = document.documentElement;
+			root.setAttribute("data-lang", locale);
+			root.setAttribute("lang", locale === "de" ? "de-DE" : "en-US");
+
+			if (persist) writeLocale(locale);
+
+			if (document.readyState === "loading") {
+				document.addEventListener("DOMContentLoaded", () => syncDocument(locale), { once: true });
+			} else {
+				syncDocument(locale);
+			}
+		}
+
+		applyLocale(readLocale(), false);
+
+		// View Transitions hook to restore locale after a swap.
+		document.addEventListener("astro:after-swap", () => applyLocale(readLocale(), false));
+
+		// Fired by src/components/LangToggle.astro
+		document.addEventListener("lang-change", (e) => applyLocale(e.detail.locale, true));
+	})();
+</script>

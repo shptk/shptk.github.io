@@ -4,8 +4,11 @@ import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 import { Icon } from "astro-icon/components";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import Pagination from "@/components/Paginator.astro";
+import T from "@/components/T.astro";
 import { getAllPosts, getTagMeta, getUniqueTags } from "@/data/post";
+import { t } from "@/i18n/ui";
 import PageLayout from "@/layouts/Base.astro";
+import type { PaginationLink } from "@/types";
 import { collectionDateSort } from "@/utils/date";
 
 export const getStaticPaths = (async ({ paginate }) => {
@@ -35,16 +38,16 @@ const meta = {
 	title: tagMeta?.data.title ?? `Posts about ${tag}`,
 };
 
-const paginationProps = {
+const paginationProps: { nextUrl?: PaginationLink; prevUrl?: PaginationLink } = {
 	...(page.url.prev && {
 		prevUrl: {
-			text: "← Previous Tags",
+			labelKey: "paginator.previousTags",
 			url: page.url.prev,
 		},
 	}),
 	...(page.url.next && {
 		nextUrl: {
-			text: "Next Tags →",
+			labelKey: "paginator.nextTags",
 			url: page.url.next,
 		},
 	}),
@@ -52,10 +55,15 @@ const paginationProps = {
 ---
 
 <PageLayout meta={meta}>
-	<nav class="mb-8" aria-label="Breadcrumbs">
+	<nav
+		class="mb-8"
+		aria-label="Breadcrumbs"
+		data-aria-de={t("de", "a11y.breadcrumbs")}
+		data-aria-en={t("en", "a11y.breadcrumbs")}
+	>
 		<ul class="flex items-center">
 			<li class="flex items-center">
-				<a class="text-accent" href="/tags/">Tags</a>
+				<a class="text-accent" href="/tags/"><T tKey="page.tags" /></a>
 				<Icon aria-hidden="true" name="mdi:chevron-right" class="mx-1.5" />
 			</li>
 			<li aria-current="page" class=""><span aria-hidden="true">#</span>{tag}</li>
