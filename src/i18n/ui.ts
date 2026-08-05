@@ -43,6 +43,7 @@ export const ui = {
 		"home.pinnedPosts": "Pinned Posts",
 		"home.posts": "Posts",
 		"home.notes": "Notes",
+		"home.links": "Links",
 
 		"page.about": "About",
 		"page.experience": "Experience",
@@ -110,6 +111,7 @@ export const ui = {
 		"home.pinnedPosts": "Angeheftete Beiträge", // Pinned Posts
 		"home.posts": "Beiträge", // Posts
 		"home.notes": "Notizen", // Notes
+		"home.links": "Links", // Links
 
 		"page.about": "Über mich", // About
 		"page.experience": "Erfahrung", // Experience
