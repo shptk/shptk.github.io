@@ -14,6 +14,7 @@ const meta = {
 const skillCategories = [
 	{
 		title: "Programming & Scripting",
+		titleDe: "Programmierung & Scripting",
 		icon: "💻",
 		skills: [
 			{ name: "Python", level: "Advanced" },
@@ -23,6 +24,7 @@ const skillCategories = [
 	},
 	{
 		title: "Infrastructure as Code",
+		titleDe: "Infrastructure as Code",
 		icon: "🏗️",
 		skills: [
 			{ name: "Terraform", level: "Expert" },
@@ -32,6 +34,7 @@ const skillCategories = [
 	},
 	{
 		title: "Cloud Platforms",
+		titleDe: "Cloud-Plattformen",
 		icon: "☁️",
 		skills: [
 			{ name: "AWS", level: "Advanced" },
@@ -41,6 +44,7 @@ const skillCategories = [
 	},
 	{
 		title: "Container Orchestration",
+		titleDe: "Container-Orchestrierung",
 		icon: "🐳",
 		skills: [
 			{ name: "Kubernetes", level: "Expert" },
@@ -50,6 +54,7 @@ const skillCategories = [
 	},
 	{
 		title: "CI/CD & Automation",
+		titleDe: "CI/CD & Automatisierung",
 		icon: "🔄",
 		skills: [
 			{ name: "GitHub Actions", level: "Advanced" },
@@ -59,6 +64,7 @@ const skillCategories = [
 	},
 	{
 		title: "Observability & Monitoring",
+		titleDe: "Observability & Monitoring",
 		icon: "📊",
 		skills: [
 			{ name: "Prometheus", level: "Advanced" },
@@ -69,6 +75,7 @@ const skillCategories = [
 	},
 	{
 		title: "Databases",
+		titleDe: "Datenbanken",
 		icon: "🗄️",
 		skills: [
 			{ name: "MongoDB", level: "Intermediate" },
@@ -78,6 +85,7 @@ const skillCategories = [
 	},
 	{
 		title: "Core Concepts",
+		titleDe: "Grundlagen",
 		icon: "🧠",
 		skills: [
 			{ name: "System Design", level: "Advanced" },
@@ -86,6 +94,23 @@ const skillCategories = [
 		],
 	},
 ];
+
+// Proficiency labels for the German fragment; the English fragment uses
+// skill.level directly.
+const LEVEL_DE: Record<string, string> = {
+	Expert: "Experte",
+	Advanced: "Fortgeschritten",
+	Intermediate: "Mittel",
+	Basic: "Grundkenntnisse",
+};
+
+// Bar width is derived from the level, so both fragments stay in sync.
+const LEVEL_WIDTH: Record<string, string> = {
+	Expert: "95%",
+	Advanced: "80%",
+	Intermediate: "60%",
+	Basic: "40%",
+};
 ---
 
 <PageLayout meta={meta}>
@@ -179,9 +204,95 @@ const skillCategories = [
 				</div>
 			</div>
 		</Fragment>
-		{
-			/* TODO(de): add <Fragment slot="de"> with the German version of this block.
-		    Until it exists, LangBlock renders the English copy above in both locales. */
-		}
+		<Fragment slot="de">
+			<div class="prose prose-sm prose-cactus max-w-none">
+				<p class="mb-8 text-lg">
+					Mein Werkzeugkasten, um cloud-native Infrastruktur aufzubauen und zu skalieren — vom
+					Schreiben von Terraform-Modulen bis zum Debuggen produktiver Kubernetes-Cluster um drei
+					Uhr morgens. Ja, das kommt vor.
+				</p>
+
+				<!-- Skills Grid -->
+				<div class="not-prose mb-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+					{
+						skillCategories.map((category) => (
+							<div class="border-accent-2 rounded-lg border p-6 transition-shadow hover:shadow-lg">
+								<div class="mb-4 flex items-center gap-3">
+									<span class="text-3xl">{category.icon}</span>
+									<h2 class="!mt-0 text-xl font-bold">{category.titleDe}</h2>
+								</div>
+								<div class="space-y-3">
+									{category.skills.map((skill) => (
+										<div>
+											<div class="mb-1 flex items-center justify-between">
+												<span class="font-medium">{skill.name}</span>
+												<span class="text-accent-2 text-xs font-semibold">
+													{LEVEL_DE[skill.level] ?? skill.level}
+												</span>
+											</div>
+											<div class="bg-accent-2/20 h-2 w-full rounded-full">
+												<div
+													class="bg-accent-2 h-2 rounded-full transition-all"
+													style={`width: ${LEVEL_WIDTH[skill.level] ?? "40%"}`}
+												/>
+											</div>
+										</div>
+									))}
+								</div>
+							</div>
+						))
+					}
+				</div>
+
+				<!-- What I'm Learning -->
+				<div class="border-accent-2 mt-12 border-t-2 pt-8">
+					<h2>Womit ich mich gerade beschäftige 🚀</h2>
+					<p>
+						Die Tech-Landschaft entwickelt sich ständig weiter — ich auch. Daran arbeite ich
+						aktuell:
+					</p>
+					<ul class="list-inside list-disc space-y-2">
+						<li>
+							<strong>Go:</strong> Praktische Erfahrung mit Go für performante Backend-Services und
+							CLI-Tools
+						</li>
+						<li>
+							<strong>System Design:</strong> Vertiefung in verteilte Systeme, Skalierungsmuster und
+							Architekturentscheidungen
+						</li>
+						<li>
+							<strong>AI/ML Ops:</strong> Wie sich DevOps-Prinzipien auf Machine-Learning-Workflows und
+							Model-Deployment übertragen lassen
+						</li>
+						<li>
+							<strong>Platform Engineering:</strong> Aufbau interner Developer-Plattformen und
+							Self-Service-Infrastruktur
+						</li>
+						<li>
+							<strong>Service Mesh:</strong> Praktische Arbeit mit Istio und Linkerd für
+							fortgeschrittenes Traffic-Management
+						</li>
+						<li>
+							<strong>FinOps:</strong> Strategien zur Cloud-Kostenoptimierung und FinOps-Best-Practices
+						</li>
+					</ul>
+				</div>
+
+				<!-- Approach -->
+				<div class="border-accent-2 mt-12 border-t-2 pt-8">
+					<h2>Meine Herangehensweise</h2>
+					<p>
+						Ich setze auf <strong>Infrastructure as Code</strong>, <strong>Automatisierung zuerst</strong>
+						und <strong>pragmatische Lösungen</strong> statt perfekter Architekturen. Jedes Werkzeug hat
+						seinen Platz, und die beste Technologie ist die, die das konkrete Problem löst.
+					</p>
+					<p>
+						Ob es um die Wahl zwischen EKS, AKS und GKE geht oder um die Frage, ob Kubernetes
+						überhaupt nötig ist: Entscheidend ist, was zum jeweiligen Anwendungsfall passt — nicht,
+						was gerade Trend ist.
+					</p>
+				</div>
+			</div>
+		</Fragment>
 	</LangBlock>
 </PageLayout>

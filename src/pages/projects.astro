@@ -156,9 +156,146 @@ const meta = {
 				</div>
 			</div>
 		</Fragment>
-		{
-			/* TODO(de): add <Fragment slot="de"> with the German version of this block.
-		    Until it exists, LangBlock renders the English copy above in both locales. */
-		}
+		<Fragment slot="de">
+			<div class="prose prose-sm prose-cactus max-w-none">
+				<p class="mb-8 text-lg">
+					Einige Projekte, die ich gebaut habe, um zu lernen, zu experimentieren und echte
+					Infrastruktur-Probleme zu lösen. Der Code ist durchgehend Open Source auf GitHub.
+				</p>
+
+				<!-- Featured Projects -->
+				<div class="space-y-10">
+					<!-- Canary Deployment Strategy -->
+					<div class="border-accent-2 rounded-lg border p-6 transition-shadow hover:shadow-lg">
+						<div class="mb-4 flex items-start justify-between">
+							<h2 class="!mt-0 !mb-2">Canary Deployment auf Kubernetes</h2>
+							<a
+								class="cactus-link text-sm"
+								href="https://github.com/shptk/CanaryDeployK8S"
+								rel="noreferrer"
+								target="_blank"
+							>
+								Auf GitHub ansehen →
+							</a>
+						</div>
+
+						<p class="mb-4">
+							Eine vollständige Umsetzung der Canary-Deployment-Strategie mit Terraform und
+							Kubernetes-Manifesten. Denn Änderungen ohne ordentliches Testen auszurollen ist
+							… mutig? Fahrlässig? Entscheiden Sie selbst.
+						</p>
+
+						<h3 class="!mb-2 text-base">Was drinsteckt:</h3>
+						<ul class="mb-4 list-inside list-disc space-y-1">
+							<li>Infrastructure as Code mit Terraform für das Aufsetzen des K8s-Clusters</li>
+							<li>Canary-Deployment-Manifeste mit Traffic-Splitting</li>
+							<li>Automatisierte Rollback-Mechanismen</li>
+							<li>Monitoring-Anbindung zur Überwachung der Canary-Instanz</li>
+						</ul>
+
+						<div class="flex flex-wrap gap-2">
+							<span
+								class="bg-accent-2/10 text-accent-2 inline-block rounded-full px-3 py-1 text-xs font-semibold"
+								>Kubernetes</span
+							>
+							<span
+								class="bg-accent-2/10 text-accent-2 inline-block rounded-full px-3 py-1 text-xs font-semibold"
+								>Terraform</span
+							>
+							<span
+								class="bg-accent-2/10 text-accent-2 inline-block rounded-full px-3 py-1 text-xs font-semibold"
+								>DevOps</span
+							>
+						</div>
+					</div>
+
+					<!-- Ansible Jenkins Integration -->
+					<div class="border-accent-2 rounded-lg border p-6 transition-shadow hover:shadow-lg">
+						<div class="mb-4 flex items-start justify-between">
+							<h2 class="!mt-0 !mb-2">CI/CD-Pipeline mit Ansible und Jenkins</h2>
+							<a
+								class="cactus-link text-sm"
+								href="https://github.com/shptk/Ansible-Jenkins-Integration"
+								rel="noreferrer"
+								target="_blank"
+							>
+								Auf GitHub ansehen →
+							</a>
+						</div>
+
+						<p class="mb-4">
+							Ein durchgängiges Setup aus Infrastructure as Code und CI/CD für eine
+							Flask-Anwendung. Das Projekt automatisiert den gesamten Weg vom Bereitstellen der
+							Infrastruktur bis zum Deployment der Anwendung.
+						</p>
+
+						<h3 class="!mb-2 text-base">Funktionen:</h3>
+						<ul class="mb-4 list-inside list-disc space-y-1">
+							<li>Automatisierte Konfiguration des Jenkins-Servers mit Ansible</li>
+							<li>Aufsetzen und Konfigurieren des Kubernetes-Clusters</li>
+							<li>Vollständige CI/CD-Pipeline für die Flask-Anwendung</li>
+							<li>Konfigurationsmanagement und Deployment-Automatisierung</li>
+							<li>Integrationstests und Verifikation des Deployments</li>
+						</ul>
+
+						<div class="flex flex-wrap gap-2">
+							<span
+								class="bg-accent-2/10 text-accent-2 inline-block rounded-full px-3 py-1 text-xs font-semibold"
+								>Ansible</span
+							>
+							<span
+								class="bg-accent-2/10 text-accent-2 inline-block rounded-full px-3 py-1 text-xs font-semibold"
+								>Jenkins</span
+							>
+							<span
+								class="bg-accent-2/10 text-accent-2 inline-block rounded-full px-3 py-1 text-xs font-semibold"
+								>Kubernetes</span
+							>
+							<span
+								class="bg-accent-2/10 text-accent-2 inline-block rounded-full px-3 py-1 text-xs font-semibold"
+								>Flask</span
+							>
+						</div>
+					</div>
+
+					<!-- More Projects Coming Soon -->
+					<div class="border-accent-2 rounded-lg border border-dashed p-6 opacity-60">
+						<h2 class="!mt-0 !mb-2">Weitere Projekte folgen</h2>
+						<p class="mb-0">
+							Ich probiere ständig neue Ideen und Technologien aus. Schauen Sie bald wieder vorbei
+							— oder folgen Sie mir direkt auf <a
+								class="cactus-link inline-block"
+								href="https://github.com/shptk"
+								rel="noreferrer"
+								target="_blank">GitHub</a
+							>, um zu sehen, woran ich gerade arbeite.
+						</p>
+					</div>
+				</div>
+
+				<!-- Call to Action -->
+				<div class="border-accent-2 mt-12 border-t-2 pt-8">
+					<h2>Lust auf Zusammenarbeit?</h2>
+					<p>
+						Für spannende DevOps- und Infrastruktur-Projekte bin ich immer offen. Wenn Sie eine Idee
+						haben oder zu einem meiner bestehenden Projekte beitragen möchten, melden Sie sich gern
+						oder öffnen Sie ein Issue auf GitHub.
+					</p>
+					<div class="mt-4 flex gap-4">
+						<a
+							class="cactus-link inline-block"
+							href="https://github.com/shptk"
+							rel="noreferrer"
+							target="_blank"
+						>
+							GitHub-Profil →
+						</a>
+						<a class="cactus-link inline-block" href="mailto:shashwatpathak100@gmail.com">
+							E-Mail schreiben →
+						</a>
+					</div>
+				</div>
+			</div>
+		</Fragment>
 	</LangBlock>
 </PageLayout>

@@ -14,6 +14,9 @@ const meta = {
 const certifications = [
 	{
 		title: "Google Certified Professional Cloud Architect",
+		dateDe: "Dezember 2025",
+		descriptionDe:
+			"Belegt die Fähigkeit, robuste, sichere, skalierbare und hochverfügbare Lösungen auf der Google Cloud Platform zu entwerfen, zu entwickeln und zu betreiben.",
 		issuer: "Google Cloud",
 		date: "December 2025",
 		credlyUrl: "https://www.credly.com/badges/feeccd04-0321-4da9-8a5b-9f5c8f2052c4/public_url",
@@ -29,6 +32,9 @@ const certifications = [
 	},
 	{
 		title: "Red Hat Certified Engineer (RHCE)",
+		dateDe: "November 2021",
+		descriptionDe:
+			"Fortgeschrittene Zertifizierung mit Schwerpunkt auf Ansible-Automatisierung, Konfigurationsmanagement und Systemautomatisierung.",
 		issuer: "Red Hat",
 		date: "November 2021",
 		credlyUrl:
@@ -40,6 +46,9 @@ const certifications = [
 	},
 	{
 		title: "Red Hat Certified System Administrator (RHCSA)",
+		dateDe: "Februar 2021",
+		descriptionDe:
+			"Grundlagenzertifizierung zu den zentralen Aufgaben der Linux-Systemadministration und fortgeschrittenen Linux-Konzepten.",
 		issuer: "Red Hat",
 		date: "February 2021",
 		credlyUrl:
@@ -51,6 +60,9 @@ const certifications = [
 	},
 	{
 		title: "Red Hat Certified Specialist in Containers and Kubernetes",
+		dateDe: "Februar 2023",
+		descriptionDe:
+			"Spezialisierung auf Container-Orchestrierung, Kubernetes-Administration und das Deployment cloud-nativer Anwendungen.",
 		issuer: "Red Hat",
 		date: "February 2023",
 		credlyUrl:
@@ -61,6 +73,26 @@ const certifications = [
 		skills: ["Kubernetes", "Container Orchestration", "OpenShift", "Cloud Native"],
 	},
 ];
+
+// German labels for the skill tags; unknown tags fall through unchanged.
+const SKILL_DE: Record<string, string> = {
+	"GCP Architecture": "GCP-Architektur",
+	"Cloud Solutions": "Cloud-Lösungen",
+	"Infrastructure Design": "Infrastruktur-Design",
+	"Security & Compliance": "Security & Compliance",
+	Ansible: "Ansible",
+	Automation: "Automatisierung",
+	"Configuration Management": "Konfigurationsmanagement",
+	"System Administration": "Systemadministration",
+	"Linux Administration": "Linux-Administration",
+	"System Management": "Systemverwaltung",
+	Troubleshooting: "Troubleshooting",
+	Security: "Security",
+	Kubernetes: "Kubernetes",
+	"Container Orchestration": "Container-Orchestrierung",
+	OpenShift: "OpenShift",
+	"Cloud Native": "Cloud Native",
+};
 ---
 
 <PageLayout meta={meta}>
@@ -153,9 +185,94 @@ const certifications = [
 				</div>
 			</div>
 		</Fragment>
-		{
-			/* TODO(de): add <Fragment slot="de"> with the German version of this block.
-		    Until it exists, LangBlock renders the English copy above in both locales. */
-		}
+		<Fragment slot="de">
+			<div class="prose prose-sm prose-cactus max-w-none">
+				<p class="mb-8 text-lg">
+					Ich lerne kontinuierlich weiter und lasse mein Wissen gern durch Zertifizierungen
+					bestätigen. Das sind die Nachweise, die ich bisher erworben habe.
+				</p>
+
+				<!-- Certifications List -->
+				<div class="not-prose space-y-8">
+					{
+						certifications.map((cert) => (
+							<div class="border-accent-2 rounded-lg border p-6 transition-shadow hover:shadow-lg">
+								<div class="flex items-start gap-4">
+									<span class="flex-shrink-0 text-4xl">{cert.icon}</span>
+									<div class="flex-grow">
+										<div class="mb-2 flex items-start justify-between">
+											<h2 class="!mt-0 text-xl font-bold">{cert.title}</h2>
+											<a
+												class="cactus-link ml-4 text-sm whitespace-nowrap"
+												href={cert.credlyUrl}
+												rel="noreferrer"
+												target="_blank"
+											>
+												Badge ansehen →
+											</a>
+										</div>
+										<p class="text-accent-2 mb-3 text-sm font-semibold">
+											{cert.issuer} • {cert.dateDe}
+										</p>
+										<p class="mb-4">{cert.descriptionDe}</p>
+										<div class="flex flex-wrap gap-2">
+											{cert.skills.map((skill) => (
+												<span class="bg-accent-2/10 text-accent-2 inline-block rounded-full px-3 py-1 text-xs font-semibold">
+													{SKILL_DE[skill] ?? skill}
+												</span>
+											))}
+										</div>
+									</div>
+								</div>
+							</div>
+						))
+					}
+				</div>
+
+				<!-- Why Certifications Matter -->
+				<div class="border-accent-2 mt-12 border-t-2 pt-8">
+					<h2>Warum Zertifizierungen?</h2>
+					<p>
+						Für mich sind Zertifizierungen keine Abzeichen zum Sammeln, sondern strukturierte
+						Lernpfade, die mich zwingen, wirklich in eine Technologie einzutauchen und mein
+						Verständnis zu überprüfen. Hinter jeder stecken hunderte Stunden Lernzeit, praktische
+						Labs und echte Anwendung.
+					</p>
+					<p>
+						Vor allem aber bringen sie mich dazu, systematisch zu lernen — statt mir nur
+						Versatzstücke von Stack Overflow zusammenzusuchen. Was, seien wir ehrlich, trotzdem alle
+						tun 😄
+					</p>
+				</div>
+
+				<!-- What's Next -->
+				<div class="border-accent-2 mt-12 border-t-2 pt-8">
+					<h2>Was als Nächstes kommt 🎯</h2>
+					<p>Ein paar weitere Zertifizierungen habe ich bereits im Blick:</p>
+					<ul class="list-inside list-disc space-y-2">
+						<li>
+							<strong>AWS Certified Solutions Architect – Professional:</strong> um mein Wissen zur
+							AWS-Architektur zu vertiefen
+						</li>
+						<li>
+							<strong>Certified Kubernetes Administrator (CKA):</strong> weil man Kubernetes nie gut
+							genug kennen kann
+						</li>
+						<li>
+							<strong>HashiCorp Certified: Terraform Associate:</strong> um meine Terraform-Expertise
+							formal zu belegen
+						</li>
+					</ul>
+					<p class="mt-4">
+						Auf <a
+							class="cactus-link inline-block"
+							href="https://www.linkedin.com/in/shptk/"
+							rel="noreferrer"
+							target="_blank">LinkedIn</a
+						> sehen Sie, sobald eine davon dazukommt.
+					</p>
+				</div>
+			</div>
+		</Fragment>
 	</LangBlock>
 </PageLayout>

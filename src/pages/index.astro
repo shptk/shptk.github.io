@@ -56,10 +56,30 @@ const latestNotes = allNotes
 					</div>
 				</div>
 			</Fragment>
-			{
-				/* TODO(de): add <Fragment slot="de"> with the German version of this block.
-			    Until it exists, LangBlock renders the English copy above in both locales. */
-			}
+			<Fragment slot="de">
+				<div class="prose prose-cactus mb-8">
+					<p class="text-lg">
+						Ich bin <strong>Platform Engineer</strong> in Bangalore (Indien) und darauf spezialisiert,
+						cloud-native Infrastruktur auf AWS, GCP und Azure aufzubauen und zu skalieren.
+					</p>
+					<p>
+						Mit über 2,5 Jahren Erfahrung in DevOps und Platform Engineering habe ich
+						Legacy-Architekturen auf moderne Microservices migriert, mehr als 40 Terraform-Module
+						gebaut, die Optimierung von Kubernetes-Clustern automatisiert und KI-gestützte Tools zur
+						Kostenoptimierung von Infrastruktur entwickelt.
+					</p>
+					<p>
+						Wenn ich gerade keine Infrastruktur entwerfe oder um drei Uhr morgens Produktionsprobleme
+						debugge, probiere ich neue Cloud-Technologien aus, stöbere in Open Source, lerne System
+						Design oder mache Zertifizierungen — zuletzt den GCP Professional Cloud Architect.
+						Aktuell arbeite ich mich außerdem in Go ein.
+					</p>
+					<div class="not-prose">
+						<a href="/about/" class="cactus-link mr-4 inline-block">Mehr über mich →</a>
+						<a href="/experience/" class="cactus-link inline-block">Meine Erfahrung ansehen →</a>
+					</div>
+				</div>
+			</Fragment>
 		</LangBlock>
 		<SocialList />
 	</section>
