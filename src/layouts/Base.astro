@@ -15,9 +15,18 @@ interface Props {
 const {
 	meta: { articleDate, description = siteConfig.description, ogImage, title, titleDe },
 } = Astro.props;
+
+// NOTE: <html> must be the very first thing in the template below. Astro only
+// emits a full document (<html>/<head>/<body>) when the markup opens with the
+// <html> element — even a comment before it silently downgrades the output to a
+// fragment. Browsers paper over this by synthesising <html> while parsing, so
+// the page still renders and only breaks downstream: pagefind finds no <html>
+// to index and the build fails in postbuild.
+//
+// `lang` below is corrected to the visitor's locale by LangProvider before first
+// paint.
 ---
 
-{/* `lang` is corrected to the visitor's locale by LangProvider before first paint. */}
 <html class="scroll-smooth" lang={siteConfig.lang}>
 	<head>
 		<BaseHead
