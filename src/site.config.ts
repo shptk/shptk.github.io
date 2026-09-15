@@ -16,7 +16,7 @@ export const siteConfig: SiteConfig = {
 	},
 	// Used as the default description meta property and webmanifest description
 	description:
-		"Platform Engineer with 2.5+ years of experience in DevOps, Cloud Architecture, and Kubernetes. Building scalable infrastructure across AWS, GCP, and Azure.",
+		"Platform Engineer based in Germany. 3+ years building and scaling cloud infrastructure on AWS, GCP, and Azure with Terraform and Kubernetes.",
 	// HTML lang property, found in src/layouts/Base.astro L:18 & astro.config.ts L:48
 	lang: "en-US",
 	// Meta property, found in src/components/BaseHead.astro L:42
